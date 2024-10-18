@@ -14,9 +14,44 @@ def get_db_connection():
     )
 
 
+def get_abteilungen():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(
+            "SELECT ID, Abteilung FROM abteilungen"
+        )  # (SELECT * FROM `abteilungen`) ginge auch
+        items = cursor.fetchall()
+        return items
+    except Error as e:
+        print(e)
+        return []
+    finally:
+        if conn and conn.is_connected():
+            conn.close()
+
+
+def get_Errors():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM fehler")
+        items = cursor.fetchall()
+        return items
+    except Error as e:
+        print(e)
+        return []
+    finally:
+        if conn and conn.is_connected():
+            conn.close()
+
+
 @app.route("/")
 def home():
-    return render_template("index.html")
+    stations = get_abteilungen()
+    errors = get_Errors()
+    print("Errors: ", errors)
+    return render_template("index.html", stations=stations, errors=errors)
 
 
 @app.route("/test-db")
@@ -36,5 +71,3 @@ def test_db_connection():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-# bitte kommentare einfügen zu neuen dingen!

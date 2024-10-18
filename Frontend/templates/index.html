@@ -14,7 +14,7 @@
                 <p>Bitte alle Felder ausfüllen</p>
             </div>
             <div class="formular">
-                <form>
+                <form action="/submit_ticket" method="post">
                     <div class="row">
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name">
@@ -24,17 +24,19 @@
                         <select id="station" name="station">
                             <option value disabled selected>-- Wählen
                                 --</option>
-                            <option value="Station1">Station 1</option>
-                            <option value="Station2">Station 2</option>
-                            <option value="Station3">Station 3</option>
+                            {% for station in stations %}
+                            <option value="{{station[0] }}">{{
+                                station[1]}}</option>
+                            {% endfor %}
                         </select>
                         <label for="fehler">Fehler:</label>
                         <select name="fehler" id="fehler">
                             <option value disabled selected>-- Wählen
                                 --</option>
-                            <option value="Fehler1">Fehler 1</option>
-                            <option value="Fehler2">Fehler 2</option>
-                            <option value="Fehler3">Fehler 3</option>
+                            {% for error in errors %}
+                            <option value="{{ error[0]}}">{{ error[1]
+                                }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="Textfeld">
