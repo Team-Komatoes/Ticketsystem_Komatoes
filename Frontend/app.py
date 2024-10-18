@@ -1,4 +1,10 @@
-from flask import Flask, render_template, jsonify  # pip install flask
+from flask import (
+    Flask,
+    render_template,
+    jsonify,
+    request,
+    redirect,
+)  # pip install flask
 import mysql.connector
 from mysql.connector import Error
 
@@ -67,6 +73,33 @@ def test_db_connection():
     finally:
         if conn and conn.is_connected():
             conn.close()
+
+
+@app.route("/submit-ticket", methods=["POST"])
+def submit():
+    name = request.form["name"]
+    station_id = request.form["station"]
+    fehler_id = request.form["fehler"]
+    ticket_inhalt = request.form["ticketfeld"]
+
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(
+            """ Insert INTO koma (Mitarbeiter, Abteilung, Fehler, Ticket)
+            VALUES (%s, %s, %s, %s)""",
+            (name, station_id, fehler_id, ticket_inhalt),
+        )
+        conn.commit()
+        print("Ticket erfolgreich gespeichert!")
+    except Error as e:
+        print("Fehler beim Speichern des Tickets: ", e)
+    finally:
+        if conn and conn.is_connected():
+            cursor.close()
+            conn.close()
+
+    return redirect("/")
 
 
 if __name__ == "__main__":
