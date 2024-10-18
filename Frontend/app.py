@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify  # pip install flask
 import mysql.connector
 from mysql.connector import Error
-from dbtest import test_db_connection, get_db_connection
+from dbtest import test_db_connection, get_db_connection  # funktionen ausgelagert!
 
 app = Flask(__name__)
 
