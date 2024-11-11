@@ -1,0 +1,3 @@
+hab im python code in zeile 94 time.sleep(5) hinzugefügt.
+die close funktion + button hab ich bei html auskommentiert
+das popup hab ich in css schonmal etwas "designed"

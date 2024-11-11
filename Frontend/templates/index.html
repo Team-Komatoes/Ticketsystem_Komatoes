@@ -38,6 +38,9 @@
                                 }}</option>
                             {% endfor %}
                         </select>
+                            <label for="prio">Prio:</label> 
+                            <input type="text" id="prio" name="prio" value="fehler" readonly><br><br> 
+                                                   
                     </div>
                     <div class="Textfeld">
                         <p class="ticket-label">Inhalt des Tickets: </p>
@@ -47,10 +50,18 @@
                             placeholder="Hier Ticket Text"
                             style="width: 550;
                             height: 150;"></textarea>
+                        
 
-                        <button type="submit"
-                            class="submit-button">Senden</button>
-
+                        
+                        <button type="submit" onclick="zeigePopup()"
+                            class="submit-button">Senden</button> 
+                            <div id="popup" class="popup">
+                                <div class="popup-content">
+                                  <p>Das Ticket wurde erfolgreich abgeschickt!</p>
+                                  <!-- <button type="button" onclick="closePopup()">Ok</button> -->
+                                </div>
+                              </div>
+                            
                     </div>
                 </form>
             </div>
@@ -58,6 +69,22 @@
     </body>
 </html>
 
+
+<script>
+
+    function prio() {
+
+    }
+
+    function zeigePopup() {
+        document.getElementById("popup").style.display = "block";   
+    }
+
+/*     function closePopup() {
+        document.getElementById("popup").style.display = "none";
+        location.reload(); 
+    }  */
+    </script>
 <!--<select id="farbe" name="farbe">
     <optgroup label="Hauptfarben">
         <option value="rot">Rot</option>

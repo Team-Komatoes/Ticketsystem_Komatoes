@@ -5,7 +5,8 @@ from flask import (
     request,
     redirect,
 )  # pip install flask
-import mysql.connector
+import mysql.connector                          #pip install mysql-connector-python
+import time                             
 from mysql.connector import Error
 
 app = Flask(__name__)
@@ -81,6 +82,7 @@ def submit():
     station_id = request.form["station"]
     fehler_id = request.form["fehler"]
     ticket_inhalt = request.form["ticketfeld"]
+    #prio_ = request.form["prio"]
 
     try:
         conn = get_db_connection()
@@ -90,6 +92,7 @@ def submit():
             VALUES (%s, %s, %s, %s)""",
             (name, station_id, fehler_id, ticket_inhalt),
         )
+        time.sleep(5)
         conn.commit()
         print("Ticket erfolgreich gespeichert!")
     except Error as e:
@@ -99,7 +102,7 @@ def submit():
             cursor.close()
             conn.close()
 
-    return redirect("/")
+    return redirect ("/")
 
 
 if __name__ == "__main__":
