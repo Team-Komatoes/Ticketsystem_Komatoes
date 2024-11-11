@@ -46,19 +46,34 @@ def get_Errors():
         items = cursor.fetchall()
         return items
     except Error as e:
-        print(e)
+        print("Kommt aus den Errors")
         return []
     finally:
         if conn and conn.is_connected():
             conn.close()
 
+def onlickprio():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT PRIO FROM priorität")
+        items = cursor.fetchall()
+        print(items)
+        return items
+    except Error as e:
+        print("fehler")
+        return []
+    finally:
+        if conn and conn.is_connected():
+            conn.close()
 
 @app.route("/")
 def home():
     stations = get_abteilungen()
     errors = get_Errors()
-    print("Errors: ", errors)
-    return render_template("index.html", stations=stations, errors=errors)
+    prios = onlickprio()
+    print("prio: ", prios)
+    return render_template("index.html", stations=stations, errors=errors, prios=prios)
 
 
 @app.route("/test-db")
@@ -82,7 +97,7 @@ def submit():
     station_id = request.form["station"]
     fehler_id = request.form["fehler"]
     ticket_inhalt = request.form["ticketfeld"]
-    
+    prio = request.form["prio"]
 
     try:
         conn = get_db_connection()
@@ -90,7 +105,7 @@ def submit():
         cursor.execute(
             """ Insert INTO koma (Mitarbeiter, Abteilung, Fehler, Ticket)
             VALUES (%s, %s, %s, %s)""",
-            (name, station_id, fehler_id, ticket_inhalt),
+            (name, station_id, fehler_id, ticket_inhalt,prio),
         )
         time.sleep(5)
         conn.commit()
