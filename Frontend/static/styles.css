@@ -10,21 +10,21 @@ h2 {
 .container {
     width: 30%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 1.25em;
     background-color: bisque;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 0;
 }
 
 .toptext {
     color: black;
-    margin-bottom: 10px;
+    margin-bottom: 0.625em;
 }
 
 .formular {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 0.99em;
 }
 
 .row {
@@ -32,55 +32,81 @@ h2 {
     width: 600;
     /* Flexbox für die Zeile */
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 0.625em;
     /* Vertikale Ausrichtung */
 }
 
 label {
-    margin-right: 8px;
+    margin-right: 0.5em;
     /* Abstand zwischen Label und Input/Select */
 }
 
 input,
 select {
-    padding: 3px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    width: 135px;
-    margin-right: 15px;
+    padding: 0.5625em;
+    border: 0,625 solid #ccc;
+    border-radius: 1.25em;
+    width: 8.4em;
+    margin-right: 0.99em;
 }
 
 
 .Textfeld {
-    margin: 20px 0;
+    margin: 1.3em 0;
 }
 
 #ticketfeld {
     width: 85%;
-    height: 150px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    height: 9.375em;
+    padding: 0.625em;
+    border: 0.5625em solid #ccc;
+    border-radius: 0.25em;
     font-family: Arial, sans-serif;
-    font-size: 14px;
+    font-size: 0.9em;
     resize: none;
 }
 
 .submit-button {
-    margin-top: 30px;
+    margin-top: 1.875em;
     display: block;
-    margin: 20px auto;
+    margin: 1.3em auto;
     background-color: #333;
     color: aliceblue;
     border: none;
-    padding: 10px 20px;
+    padding: 0.625em 1.3em;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 0.3em;
     justify-content: center;
     align-items: center;
 
 }
 
 .ticket-label {
-    margin-bottom: 10px;
+    margin-bottom: 0.625em;
 }
+
+/* Popup-Fenster */
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+    width: 18.75em;
+    background-color: bisque;
+    padding: 1.3em;
+    box-shadow: 0 0 0.625em rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .popup-content {
+    text-align: center;
+  }
+  
+  .popup-content button {
+    margin-top: 0.625em;
+  }
+  
+ /*  body {
+    font-family: Arial, sans-serif;
+  } */
