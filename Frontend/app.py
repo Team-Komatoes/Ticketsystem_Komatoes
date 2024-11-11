@@ -82,7 +82,7 @@ def submit():
     station_id = request.form["station"]
     fehler_id = request.form["fehler"]
     ticket_inhalt = request.form["ticketfeld"]
-    #prio_ = request.form["prio"]
+    
 
     try:
         conn = get_db_connection()

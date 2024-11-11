@@ -107,6 +107,10 @@ select {
     margin-top: 0.625em;
   }
   
+.readonly {
+width: 2.75em;
+ } 
+
  /*  body {
     font-family: Arial, sans-serif;
   } */
