@@ -41,7 +41,8 @@
                         </select>
 
                         <label for="prio">Prio:</label>
-                        <span id="prioLabel">Prio</span><br><br>
+                        <input class="readonly" type="text" id="myInput"
+                            name="prio" placeholder="Prio" readonly><br><br>
 
                     </div>
                     <div class="Textfeld">
@@ -57,8 +58,7 @@
                             class="submit-button">Senden</button>
                         <div id="popup" class="popup">
                             <div class="popup-content">
-                                <p>Das Ticket wurde erfolgreich
-                                    abgeschickt!</p>
+                                <p>Das Ticket wurde erfolgreich abgeschickt!</p>
                                 <!-- <button type="button" onclick="closePopup()">Ok</button> -->
                             </div>
                         </div>
@@ -75,18 +75,18 @@
 function updateprio() {
     var selectedValue = document.getElementById("fehler").value;  
     $.get("/get_option_data/" + selectedValue, function(data) {
-        console.log(data);
         if (data.content !== "Keine Daten gefunden.") {
-           
-            document.getElementById("prioLabel").textContent = data.content;  
+            document.getElementById("myInput").value = data.content; 
         } else {
-            
-            document.getElementById("prioLabel").textContent = "Keine Priorität gefunden";
+            document.getElementById("myInput").value = ""; 
         }
     }).fail(function() {
         alert("Fehler beim Abrufen der Priorität.");
     });
 }
+
+    
+
     function zeigePopup() {
         document.getElementById("popup").style.display = "block";   
     }
