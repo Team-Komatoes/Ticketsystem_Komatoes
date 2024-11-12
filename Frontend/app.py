@@ -111,9 +111,9 @@ def submit():
         conn = get_db_connection()
         cursor = conn.cursor()
         cursor.execute(
-            """ Insert INTO koma (Mitarbeiter, Abteilung, Fehler, Ticket)
-            VALUES (%s, %s, %s, %s)""",
-            (name, station_id, fehler_id, ticket_inhalt,prio),
+            """ Insert INTO koma (Mitarbeiter, Abteilung, Fehler, Ticket, Prio)
+            VALUES (%s, %s, %s, %s, %s)""",
+            (name, station_id, fehler_id, ticket_inhalt, prio),
         )
         time.sleep(5)
         conn.commit()
