@@ -52,17 +52,25 @@ def get_Errors():
         if conn and conn.is_connected():
             conn.close()
 
+@app.route("/getprio", methods=["POST"])
 def onlickprio():
+    if request.content_type != 'application/json':
+        return jsonify({'error': 'Content-Type muss application/json sein'}), 415
+    
     try:
+        data = request.get_json(force=True)  # 'force=True' sorgt dafür, dass die JSON-Daten sicher geladen werden
+        user_input = data.get('input', '')
+
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute("SELECT PRIO FROM priorität")
-        items = cursor.fetchall()
-        print(items)
-        return items
-    except Error as e:
-        print("fehler")
-        return []
+        cursor.execute(f"""
+                    SELECT prio FROM prioritaet
+                    WHERE id = {user_input}""")
+        prio = cursor.fetchall()
+        result = f"{prio}".replace("[", "").replace("]", "").replace("(", "").replace(")", "").replace("'", "").replace(",", "")
+        return jsonify({'result': result}), 200
+    except Exception as e:
+        return jsonify({'error': 'Ungültiges JSON-Format', 'message': str(e)}), 400
     finally:
         if conn and conn.is_connected():
             conn.close()
