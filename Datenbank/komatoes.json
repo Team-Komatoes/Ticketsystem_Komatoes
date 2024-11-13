@@ -128,7 +128,7 @@
     },
     {
         "type": "table",
-        "name": "Priorit\u00c3\u00a4t",
+        "name": "prioritaet",
         "database": "komatoes",
         "data": [
             {
@@ -207,86 +207,7 @@
         "name": "koma",
         "database": "komatoes",
         "data": [
-            {
-                "ID": "1",
-                "Mitarbeiter": null,
-                "Abteilung": null,
-                "Fehler": null,
-                "Ticket": null,
-                "Uhrzeit": null
-            },
-            {
-                "ID": "2",
-                "Mitarbeiter": null,
-                "Abteilung": null,
-                "Fehler": null,
-                "Ticket": null,
-                "Uhrzeit": null
-            },
-            {
-                "ID": "3",
-                "Mitarbeiter": null,
-                "Abteilung": null,
-                "Fehler": null,
-                "Ticket": null,
-                "Uhrzeit": null
-            },
-            {
-                "ID": "4",
-                "Mitarbeiter": null,
-                "Abteilung": null,
-                "Fehler": null,
-                "Ticket": null,
-                "Uhrzeit": null
-            },
-            {
-                "ID": "5",
-                "Mitarbeiter": null,
-                "Abteilung": null,
-                "Fehler": null,
-                "Ticket": null,
-                "Uhrzeit": null
-            },
-            {
-                "ID": "6",
-                "Mitarbeiter": null,
-                "Abteilung": null,
-                "Fehler": null,
-                "Ticket": null,
-                "Uhrzeit": null
-            },
-            {
-                "ID": "7",
-                "Mitarbeiter": null,
-                "Abteilung": null,
-                "Fehler": null,
-                "Ticket": null,
-                "Uhrzeit": null
-            },
-            {
-                "ID": "8",
-                "Mitarbeiter": null,
-                "Abteilung": null,
-                "Fehler": null,
-                "Ticket": null,
-                "Uhrzeit": null
-            },
-            {
-                "ID": "9",
-                "Mitarbeiter": null,
-                "Abteilung": null,
-                "Fehler": null,
-                "Ticket": null,
-                "Uhrzeit": null
-            },
-            {
-                "ID": "10",
-                "Mitarbeiter": null,
-                "Abteilung": null,
-                "Fehler": null,
-                "Ticket": null,
-                "Uhrzeit": null
-            }
+
         ]
     }
 ]

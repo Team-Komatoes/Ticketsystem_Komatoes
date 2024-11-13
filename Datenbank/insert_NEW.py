@@ -1,17 +1,18 @@
 import json
 
 # JSON-Datei, die bereits existiert
-dateiname = 'komatoes.json'
+dateiname = './Datenbank/komatoes.json'
 
 # Variablen für den neuen Eintrag
-table_name = "Priorität"  # Name der Tabelle, in die der Eintrag hinzugefügt werden soll
+table_name = "koma"  # Name der Tabelle, in die der Eintrag hinzugefügt werden soll
 neuer_eintrag = {
-    "ID": "11",  # ID des neuen Eintrags
+    "ID": "",  # ID des neuen Eintrags
     "Mitarbeiter": "",  # Name des Mitarbeiters
     "Abteilung": "",  # Abteilung (kann leer sein)
-    "Fehler": "2",  # Fehler (kann leer sein)
+    "Fehler": "",  # Fehler (kann leer sein)
     "Ticket": "",  # Ticket (kann leer sein)
-    "Uhrzeit": ""  # Uhrzeit (kann leer sein)
+    "Uhrzeit": "",  # Uhrzeit (kann leer sein)
+    "Prio": ""      # Priorität
 }
 
 # JSON-Datei lesen
