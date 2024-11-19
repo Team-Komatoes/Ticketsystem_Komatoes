@@ -48,10 +48,13 @@
                         <p class="ticket-label">Inhalt des Tickets: </p>
                         <textarea
                             name="ticketfeld"
-                            id="ticketfeld" cols="35" rows="10"
+                            id="ticketfeld" maxlength="255" cols="35" rows="10"
                             placeholder="Hier Ticket Text"
                             style="width: 550;
                             height: 150;"></textarea>
+
+                    
+                    <div class="char-counter" id="charCounter">Zeichen: 0 / 255</div>
                         
 
                         
@@ -101,11 +104,22 @@ async function getPythonOutput() {
         document.getElementById("popup").style.display = "block";   
     }
 
-/*     function closePopup() {
+    const textInput = document.getElementById("ticketfeld");
+    const charCounter = document.getElementById("charCounter");
+
+    textInput.addEventListener("input", () => {
+        const charCount = textInput.value.length;
+        const maxlength = textInput.getAttribute("maxlength");
+        charCounter.textContent = `Zeichen: ${charCount} / ${maxlength}`;
+    });
+
+</script>
+
+<!-- /*     function closePopup() {
         document.getElementById("popup").style.display = "none";
         location.reload(); 
-    }  */
-    </script>
+    }  */ -->
+    
 <!--<select id="farbe" name="farbe">
     <optgroup label="Hauptfarben">
         <option value="rot">Rot</option>
@@ -120,29 +134,3 @@ async function getPythonOutput() {
 </select>
 -->
 
-
-
-
-    
-
-<!--     <script>
-        function buttonClicked() {
-            // Bei Klick auf den Button wird eine AJAX-Anfrage an den Flask-Server gesendet
-            $.get("/onclickprio", function(data) {
-                // Wenn der Server geantwortet hat, zeige die Antwort an
-                document.getElementById('response').innerText = data.message;
-            });
-        }
-    </script>
- -->
-
- <script>
-    // Diese Funktion wird aufgerufen, wenn der Benutzer eine Auswahl trifft
-    function updateInput() {
-        // Holen des selektierten Wertes aus dem Select-Element
-        var selectedValue = document.getElementById("response").value;
-        
-        // Setze den Wert des Textfeldes auf den ausgewählten Wert
-        document.getElementById("myInput").value = selectedValue;
-    }
-</script>
