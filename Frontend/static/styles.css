@@ -111,6 +111,12 @@ select {
 width: 3em;
  } 
 
+ .char-counter {
+    margin-top: 0.6em;
+    font-size: 0.9em;
+    color: #555;
+}
+
  /*  body {
     font-family: Arial, sans-serif;
   } */
